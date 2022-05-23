@@ -110,6 +110,10 @@ class ClientRequestWatcher extends Watcher
             if (Str::startsWith(strtolower($response->header('Content-Type') ?? ''), 'text/plain')) {
                 return $this->contentWithinLimits($content) ? $content : 'Purged By Telescope';
             }
+
+            if (Str::startsWith(strtolower($response->header('Content-Type') ?? ''), 'application/xml')) {
+                return $this->contentWithinLimits($content) ? $content : 'Purged By Telescope';
+            }
         }
 
         if ($response->redirect()) {
@@ -137,7 +141,8 @@ class ClientRequestWatcher extends Watcher
 
         $headers = array_combine($headerNames, $headerValues);
 
-        return $this->hideParameters($headers,
+        return $this->hideParameters(
+            $headers,
             Telescope::$hiddenRequestHeaders
         );
     }
@@ -150,7 +155,8 @@ class ClientRequestWatcher extends Watcher
      */
     protected function payload($payload)
     {
-        return $this->hideParameters($payload,
+        return $this->hideParameters(
+            $payload,
             Telescope::$hiddenRequestParameters
         );
     }
