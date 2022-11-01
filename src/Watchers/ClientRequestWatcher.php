@@ -58,11 +58,17 @@ class ClientRequestWatcher extends Watcher
             return;
         }
 
+        $payload = $this->payload($this->input($event->request));
+
+        if (is_array($payload) && count($payload) == 0) {
+            $payload = $event->request->body();
+        }
+
         Telescope::recordClientRequest(IncomingEntry::make([
             'method' => $event->request->method(),
             'uri' => $event->request->url(),
             'headers' => $this->headers($event->request->headers()),
-            'payload' => $this->payload($this->input($event->request)),
+            'payload' => $payload,
             'response_status' => $event->response->status(),
             'response_headers' => $this->headers($event->response->headers()),
             'response' => $this->response($event->response),
@@ -116,6 +122,10 @@ class ClientRequestWatcher extends Watcher
             }
 
             if (Str::startsWith(strtolower($response->header('Content-Type') ?? ''), 'text/html')) {
+                return $this->contentWithinLimits($content) ? $content : 'Purged By Telescope';
+            }
+
+            if (Str::startsWith(strtolower($response->header('Content-Type') ?? ''), 'application/xml')) {
                 return $this->contentWithinLimits($content) ? $content : 'Purged By Telescope';
             }
         }
