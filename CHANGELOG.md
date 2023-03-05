@@ -1,6 +1,138 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/telescope/compare/v4.7.4...4.x)
+## [Unreleased](https://github.com/laravel/telescope/compare/v4.14.0...4.x)
+
+## [v4.14.0](https://github.com/laravel/telescope/compare/v4.13.2...v4.14.0) - 2023-02-21
+
+- Prevent `Laravel\Scout\Jobs\MakeSearchable` job from being recorded to avoid memory leak by @nicoverbruggen in https://github.com/laravel/telescope/pull/1306
+- Allows to specify the log level by @nunomaduro in https://github.com/laravel/telescope/pull/1312
+
+## [v4.13.2](https://github.com/laravel/telescope/compare/v4.13.1...v4.13.2) - 2023-02-16
+
+- Create a fresh instance of schema for each migration by @nunomaduro in https://github.com/laravel/telescope/pull/1305
+
+## [v4.13.1](https://github.com/laravel/telescope/compare/v4.13.0...v4.13.1) - 2023-02-06
+
+### Changed
+
+- Center header button icons by @timacdonald in https://github.com/laravel/telescope/pull/1299
+
+## [v4.13.0](https://github.com/laravel/telescope/compare/v4.12.0...v4.13.0) - 2023-01-30
+
+### Changed
+
+- A fresh coat of paint by @jessarcher in https://github.com/laravel/telescope/pull/1295
+
+### Fixed
+
+- Handle redis connection exception on DumpWatcher register by @aidanthewiz in https://github.com/laravel/telescope/pull/1296
+
+## [v4.12.0](https://github.com/laravel/telescope/compare/v4.11.0...v4.12.0) - 2023-01-13
+
+### Added
+
+- Laravel v10 Support by @driesvints in https://github.com/laravel/telescope/pull/1292
+
+## [v4.11.0](https://github.com/laravel/telescope/compare/v4.10.2...v4.11.0) - 2023-01-03
+
+### Added
+
+- Add support for model keys cast to backed enums in FormatModel by @sidquisaad in https://github.com/laravel/telescope/pull/1286
+
+### Changed
+
+- Uses PHP Native Type Declarations 🐘  by @nunomaduro in https://github.com/laravel/telescope/pull/1267
+
+## [v4.10.2](https://github.com/laravel/telescope/compare/v4.10.1...v4.10.2) - 2022-12-19
+
+### Fixed
+
+- Fix deprecations by @driesvints in https://github.com/laravel/telescope/pull/1284
+
+## [v4.10.1](https://github.com/laravel/telescope/compare/v4.10.0...v4.10.1) - 2022-12-14
+
+### Fixed
+
+- Adjust text-break layout with text-break class by @thomas-goncalves-83 in https://github.com/laravel/telescope/pull/1281
+- Fix FormatModel class to work with keyless Pivot models by @Cellard in https://github.com/laravel/telescope/pull/1282
+
+## [v4.10.0](https://github.com/laravel/telescope/compare/v4.9.6...v4.10.0) - 2022-12-05
+
+### Added
+
+- Add the Ability to Pass Custom `ignore_paths` To Query Watcher by @Watercycle in https://github.com/laravel/telescope/pull/1276
+
+## [v4.9.6](https://github.com/laravel/telescope/compare/v4.9.5...v4.9.6) - 2022-11-08
+
+### Fixed
+
+- Fix issue where json_encode quietly fails due to binary data inside telescope entry by @Hexide in https://github.com/laravel/telescope/pull/1266
+
+## [v4.9.5](https://github.com/laravel/telescope/compare/v4.9.4...v4.9.5) - 2022-10-06
+
+### Fixed
+
+- Dont register redis watcher if the redis service is not bound into the container. by @mad-briller in https://github.com/laravel/telescope/pull/1259
+
+## [v4.9.4](https://github.com/laravel/telescope/compare/v4.9.3...v4.9.4) - 2022-10-03
+
+### Fixed
+
+- Do not record when unserializing command by @driesvints in https://github.com/laravel/telescope/pull/1257 & https://github.com/laravel/telescope/pull/1258
+
+## [v4.9.3](https://github.com/laravel/telescope/compare/v4.9.2...v4.9.3) - 2022-09-12
+
+### Fixed
+
+- Fix bug watching invokeable object events by @ziadoz in https://github.com/laravel/telescope/pull/1250
+
+## [v4.9.2](https://github.com/laravel/telescope/compare/v4.9.1...v4.9.2) - 2022-08-08
+
+### Changed
+
+- HTML Response vs Empty Response by @bdenizar in https://github.com/laravel/telescope/pull/1242
+
+## [v4.9.1](https://github.com/laravel/telescope/compare/v4.9.0...v4.9.1) - 2022-07-18
+
+### Fixed
+
+- Check tags after set $this->user() by @trin4ik in https://github.com/laravel/telescope/pull/1236
+
+## [v4.9.0](https://github.com/laravel/telescope/compare/v4.8.3...v4.9.0) - 2022-04-19
+
+### Added
+
+- Add support for ignoring by HTTP Verb by @ArthurPatriot in https://github.com/laravel/telescope/pull/1222
+
+## [v4.8.3](https://github.com/laravel/telescope/compare/v4.8.2...v4.8.3) - 2022-04-11
+
+### Changed
+
+- Relax user type in GateWatcher to match Laravel base framework. by @CImrie in https://github.com/laravel/telescope/pull/1221
+
+## [v4.8.2](https://github.com/laravel/telescope/compare/v4.8.1...v4.8.2) - 2022-04-01
+
+### Fixed
+
+- Defer loading monitored tags by @taylorotwell in https://github.com/laravel/telescope/pull/1215
+
+## [v4.8.1](https://github.com/laravel/telescope/compare/v4.8.0...v4.8.1) - 2022-03-26
+
+### Changed
+
+- CacheWatcher hide values by @dododedodonl in https://github.com/laravel/telescope/pull/1206
+- Read from Horizon config when ignoring requests by @lightbulblighter in https://github.com/laravel/telescope/pull/1211
+
+## [v4.8.0](https://github.com/laravel/telescope/compare/v4.7.4...v4.8.0) - 2022-03-15
+
+### Added
+
+- Add option to record dumps even though the dump watcher tab is not open by @superDuperCyberTechno in https://github.com/laravel/telescope/pull/1199
+- Add pause and resume commands by @jamespavett in https://github.com/laravel/telescope/pull/1200
+
+### Changed
+
+- Use Throwable instead of Exception by @adriaanzon in https://github.com/laravel/telescope/pull/1201
 
 ## [v4.7.4](https://github.com/laravel/telescope/compare/v4.7.3...v4.7.4) - 2022-03-03
 
